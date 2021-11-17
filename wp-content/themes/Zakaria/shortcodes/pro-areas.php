@@ -14,17 +14,17 @@ function pro_skills_areas(){
     $str = '<div class="elementor-row">';
         while ($query->have_posts()):
          $query->the_post();
-         $str .='
+         $str .= '
          <div class="elementor-column elementor-col-33 elementor-top-column elementor-element " data-element_type="column">
             <div class="pro-area-box homepage-skills">
                 <div class="content">
-                    <a class="icon" href="'.get_the_permalink().'"><i aria-hidden="true" class="'.do_shortcode('[acf field="icon"]').'"></i></a>
+                    <a class="icon" href="'.get_the_permalink().'">
+                    <i aria-hidden="true" class="'.do_shortcode('[acf field="Icon"]').'"></i></a>
                         <h3 class="title">'.get_the_title().'</h3>
                             <p class="description">'.do_shortcode('[acf field="blurb"]').'</p>
                                 </div>>
             </div>>
-         </div>>
-			
+         </div>>        
          ';
 
         if($i % 3 == 0):
@@ -42,30 +42,6 @@ function pro_skills_areas(){
     wp_reset_postdata();
     return $str;
 
-    /*
-     * <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-64a536c" data-id="64a536c" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-			<div class="elementor-widget-wrap elementor-element-populated">
-								<div class="elementor-element elementor-element-408ea8c elementor-view-stacked elementor-shape-circle elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="408ea8c" data-element_type="widget" data-widget_type="icon-box.default">
-				<div class="elementor-widget-container">
-					<div class="elementor-icon-box-wrapper">
-						<div class="elementor-icon-box-icon">
-				<span class="elementor-icon elementor-animation-">
-				<i aria-hidden="true" class="far fa-chart-bar"></i>				</span>
-			</div>
-						<div class="elementor-icon-box-content">
-				<h3 class="elementor-icon-box-title">
-					<span>
-						This is the heading					</span>
-				</h3>
-									<p class="elementor-icon-box-description">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.					</p>
-							</div>
-		</div>
-				</div>
-				</div>
-					</div>
-		</div>
-     */
 
 }
 add_shortcode('pro_skills_areas' ,'pro_skills_areas' );
@@ -90,3 +66,29 @@ function pro_areas_link(){
         return $links;
     }
 add_shortcode('pro-areas_link' ,'pro_areas_link' );
+add_filter('manage_pro-area_posts_columns', 'pro_area_columns');
+function pro_area_columns($columns) {
+
+    $columns = array(
+        'cb'=> 'cb',
+        'title'=>'title',
+        'order'=>'order',
+        'date'=>'date'
+    );
+    return $columns;
+}
+add_filter('manage_edit-pro-area_sortable_columns', 'pro_area_sortable_columns');
+
+function pro_area_sortable_columns ($columns){
+    $columns['order'] = 'order';
+    return $columns;
+
+    }
+add_action('manage_pro-area_posts_custom_column', 'pro_area_show_columns');
+
+function pro_area_show_columns($column_name){
+    global $post;
+    if($column_name == 'order'):
+        echo $post->menu_order;
+    endif;
+    }
