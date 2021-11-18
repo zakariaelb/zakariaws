@@ -12,8 +12,8 @@
                     <h3><?php echo get_the_title(); ?></h3>
                     <h4><?php echo do_shortcode('[acf field="blurb"]'); ?></h4>
                     <?php echo the_content(); ?>
-                    <h3 align="center">Request information</h3>
-                    <p align="center"> You can complete the following form for more information.</p>
+                    <h3 STYLE="text-align: center">Request information</h3>
+                    <p style="text-align: center"> You can complete the following form for more information.</p>
                     <?php echo do_shortcode('[fluentform id="3"]') ?>
                 </div>
             </div>

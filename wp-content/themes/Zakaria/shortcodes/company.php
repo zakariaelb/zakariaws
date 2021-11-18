@@ -29,7 +29,7 @@ function company()
                                 <a href="' . get_the_permalink() . '">' . get_the_title() . '</a>
                             </h2>
                             <h3>
-                            ' . do_shortcode('[acf field="title"]') . '
+                            ' . do_shortcode('[acf field="name"]') . '
                             </h3>
                             <div>
                             <a href="mailto:' . do_shortcode('[acf field="email_address"]') . '" title="Email ' . get_the_title() . '">
@@ -47,7 +47,7 @@ function company()
          ';
         if ($i % 3 == 0):
             $str .= '</div>';
-            $str .= '<div class="elementor-row">';
+            $str .= '<div class="elementor-row company">';
         endif;
         $i++;
     endwhile;
