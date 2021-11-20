@@ -22,8 +22,8 @@ function pro_skills_areas()
                     <a class="icon" href="' . get_the_permalink() . '">
                     <i aria-hidden="true" class="' . do_shortcode('[acf field="Icon"]') . '"></i></a>
                         <h3 class="title">' . get_the_title() . '</h3>
-                            <p class="description">' . do_shortcode('[acf field="blurb"]') . '</p>
-                                </div>>
+                            <p class="description">'. do_shortcode('[acf field="blurb"]') . '</p>
+               </div>                             
             </div>
          </div>        
          ';

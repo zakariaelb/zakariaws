@@ -38,7 +38,7 @@
 			defaultTime:"",
 			working_dates:[true,true,true,true,true,true,true],
 
-			formats:["mm/dd/yyyy","dd/mm/yyyy"],
+			formats:new Array("mm/dd/yyyy","dd/mm/yyyy"),
 
 			display:function()
 				{

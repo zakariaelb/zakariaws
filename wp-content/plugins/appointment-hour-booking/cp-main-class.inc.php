@@ -1989,7 +1989,7 @@ class CP_AppBookingPlugin extends CP_APPBOOK_BaseClass {
         $this->add_field_verify($wpdb->prefix.$this->table_items, 'calendar_language');
         $this->add_field_verify($wpdb->prefix.$this->table_items, 'date_format');
         $this->add_field_verify($wpdb->prefix.$this->table_items, 'vs_text_maxapp');
-        $this->add_field_verify($wpdb->prefix.$this->table_items, 'defaultstatus', "VARCHAR(250) DEFAULT '' NOT NULL");
+        $this->add_field_verify($wpdb->prefix.$this->table_items, 'defaultstatus', "VARCHAR(250) DEFAULT '' NOT NULL");;
         $this->add_field_verify($wpdb->prefix.$this->table_items, 'defaultpaidstatus', "VARCHAR(250) DEFAULT '' NOT NULL");
         $this->add_field_verify($wpdb->prefix.$this->table_items, 'cp_user_access_settings', "VARCHAR(10) DEFAULT '' NOT NULL");
         $this->add_field_verify($wpdb->prefix.$this->table_items, 'display_emails_endtime', "VARCHAR(10) DEFAULT '' NOT NULL");

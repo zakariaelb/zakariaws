@@ -7,9 +7,9 @@ $.extend(
 		ftype:"fapp",			
 		services:new Array({name:"Service 1",price:1,capacity:1,duration:60,pb:0,pa:0,ohindex:0}),
 		/*openhours:new Array({type:"all",d:"",h1:8,m1:0,h2:17,m2:0}),new Array({name:"Default",openhours:new Array({type:"all",d:"",h1:8,m1:0,h2:17,m2:0})})*/
-		openhours:[],
+		openhours:new Array(),
 		allOH:new Array({name:"Default",openhours:new Array({type:"all",d:"",h1:8,m1:0,h2:17,m2:0})}),
-		usedSlots:[],
+		usedSlots:new Array(),
 		dateFormat:"mm/dd/yy",
 		showDropdown:false,
 		showTotalCost:false,
@@ -34,14 +34,14 @@ $.extend(
 		bSlotsCheckbox: true,
 		bSlots:30,
 		militaryTime:1,
-		cacheArr:[],
+		cacheArr:new Array(),
 		getD:new Date(),
 		formId:0,
 		getMinDate:"",
 		getMaxDate:"",
-		arr:[],
-		allUsedSlots:[],
-		invalidDatesByService:[],
+		arr:new Array(),
+		allUsedSlots:new Array(),
+		invalidDatesByService:new Array(),
 		service_selected:0,
 		quantity_selected:1,
 		tz:0,
@@ -49,8 +49,8 @@ $.extend(
 		ignoreUsedSlots:false,
 		initialapp:"",
 		initialID:0,
-		pctByDay:[],
-		htmlUsedSlots:[],
+		pctByDay:new Array(),
+		htmlUsedSlots:new Array(),
 		extras:0,
 		sub_cost:0,
 		percent:0,
@@ -61,18 +61,18 @@ $.extend(
 		getSplittedSlots:function(d,s)
 		{	
 		    function splitSlots (a,serviceindex) {
-                var dots = [];
+                var dots = new Array();
                 for (var i=0;i<a.length;i++)
                 {
                     dots[dots.length] = a[i].t1;
                     dots[dots.length] = a[i].t2;
                 }
                 dots.sort(function(a, b){return a - b});    
-                var processed_dots = [];
+                var processed_dots = new Array();
                 for (var i=0;i<dots.length;i++)
                     if (i==0 || dots[i] != dots[i-1])
                         processed_dots[processed_dots.length] = dots[i];
-                var aoutput = [];
+                var aoutput = new Array();
                 for (var i=0;i<processed_dots.length-1;i++)
                 {
                     var s = processed_dots[i];
@@ -92,7 +92,7 @@ $.extend(
                 }
                 return aoutput;
             }
-		    var data = [];
+		    var data = new Array();
 		    d.sort(function(a, b){
 		  	    if ((typeof a.serviceindex !== 'undefined') && (typeof b.serviceindex !== 'undefined'))
 		  	        return a.serviceindex - b.serviceindex;
@@ -126,7 +126,7 @@ $.extend(
 		getCompatSlots:function(d)
 		{
 		    
-		    var data = [];
+		    var data = new Array();
 		    var find = false;
 		    for (var i=0;i<d.length;i++)
 			{
@@ -135,7 +135,7 @@ $.extend(
 			    var s = -1;    
 			    if (typeof d[i].serviceindex !== 'undefined')
 			        s = d[i].serviceindex;
-			    d[i].service = [];
+			    d[i].service = new Array();
 			    d[i].service[0] = s;    
 			                                  
 			    find = false; 
@@ -166,7 +166,7 @@ $.extend(
 		getSpecialDays:function()
 		{
 		    var me  = this;
-		    var a = [];
+		    var a = new Array();
 		  	if (!me.emptySelectCheckbox || (me.emptySelectCheckbox && $(".fieldCalendarService"+me.name+" select option:selected").index() > 0 ))
 		  	{
 		  	    var ohindex = me.services[me.normalizeSelectIndex($(".fieldCalendarService"+me.name+" select option:selected").index())].ohindex;
@@ -198,17 +198,17 @@ $.extend(
             {
                 var d2 = $.datepicker.parseDate("yy-mm-dd",d);
                 if (me.working_dates[d2.getDay()]==0)
-                    return [];
+                    return new Array(); 
                 for( var i = 0, l = me.invalidDates.length; i < l; i++ )
                 {
                 	if (d2.getTime() === me.invalidDates[i].getTime())
-                	    return [];
+                	    return new Array(); 
                 }       
             }
             var capacity_service = me.services[s].capacity;
             if (!me.cacheOpenHours || me.cacheOpenHours.length==0)
             {
-                var arr = [];
+                var arr = new Array();
                 var ohindex = me.services[s].ohindex;
 			  	for (var i=0;i<me.allOH[ohindex].openhours.length;i++)
 			  	{
@@ -227,7 +227,7 @@ $.extend(
             }
             /*if (!me.arr[d])*/
             {
-                var a = [];
+                var a = new Array();
 			  	if (me.cacheOpenHours[d])
 			  	    a = me.cacheOpenHours[d].slice(0);
 			  	else if (me.cacheOpenHours["d"+$.datepicker.parseDate("yy-mm-dd", d).getDay()])
@@ -239,13 +239,13 @@ $.extend(
             }
             if (!me.duration)
             {
-                var arr = [];
+                var arr = new Array();
                 return arr;
             }   
             var data1 = me.cacheArr[d];            
-            if (!data1) data1 = [];
+            if (!data1) data1 = new Array();
             var duration = parseFloat(me.services[s].duration);
-			var arr = [];
+			var arr = new Array();
 			for (var i=0;i<me.arr[d].length;i++)
 			    arr[i] = jQuery.extend({}, me.arr[d][i]);			  		 	      
             for (var i=0;i<arr.length;i++)
@@ -445,7 +445,7 @@ $.extend(
             var me = this;
             var duration = parseFloat(me.services[s].duration);
             var html = "";
-            var htmlSlots = [];
+            var htmlSlots = new Array();
 		    var pb = 0;
 		    var pa = 0;
 		    var v = false;
@@ -563,7 +563,7 @@ $.extend(
 		    {
 		        st = st * 60;
 		        et = et * 60;
-		        var htmlSlots = [];
+		        var htmlSlots = new Array();
 		    	//if (me.bSlotsCheckbox && me.usedSlotsCheckbox)
 		    	if (true)//if (me.usedSlotsCheckbox)
 		    	{
@@ -657,7 +657,7 @@ $.extend(
 		{      
 		    var me = this;
 		    var day = $.datepicker.formatDate('yy-mm-dd', d);
-            var c =  [day,"d"+day];
+            var c =  new Array(day,"d"+day);
             if (me.working_dates[d.getDay()]==0  && ($.inArray(day, me.special_days) == -1))
                 c.push("nonworking","ui-datepicker-unselectable","ui-state-disabled");
             for( var i = 0, l = me.invalidDates.length; i < l; i++ )
@@ -667,6 +667,8 @@ $.extend(
             }
             if (me.minDate!=="" && me.getMinDate!="" && day < $.datepicker.formatDate('yy-mm-dd', me.getMinDate))
                 c.push("nonworking","ui-datepicker-unselectable","ui-state-disabled","beforemindate");
+            if (me.maxDate!=="" && me.getMaxDate!="" && day > $.datepicker.formatDate('yy-mm-dd', me.getMaxDate))
+                c.push("nonworking","ui-datepicker-unselectable","ui-state-disabled","aftermaxdate");    
             if (($.inArray("ui-datepicker-unselectable",c)==-1) &&  !me.emptySelectCheckbox || (me.emptySelectCheckbox && $(".fieldCalendarService"+me.name+" select option:selected").index() > 0 ))
             {
                 var arr = me.getAvailableSlots(day);
@@ -751,12 +753,12 @@ $.extend(
 			    if (!me.openhours[0].name)
 			    {
 			        var obj = {name:"Default",openhours:me.openhours.slice(0)};
-			        me.openhours = [];
+			        me.openhours = new Array();			     
 			        me.openhours[0] = obj;			     
 			    }
-			    me.allOH = [];
+			    me.allOH = new Array();
 			    me.allOH = me.openhours.slice(0);
-			    me.openhours = [];
+			    me.openhours = new Array();
 			}
 			var dd = "";
 			if (me.initialapp!="")
@@ -799,7 +801,7 @@ $.extend(
 		        {
 		            $( '#field' + me.form_identifier + '-' + me.index + ' .slotsCalendar'+me.name ).html("");
 		  	        return;
-		  	    }     
+		  	    }   
 		  	    function getSlots(d)
 		  		{		
 		            var data1 = me.cacheArr[d];
@@ -833,7 +835,7 @@ $.extend(
                             {
                                 e.datepicker("setDate", me.getMinDate);
                                 me.getD = me.getMinDate;
-                                me.invalidDatesByService[c] = [];
+                                me.invalidDatesByService[c] = new Array();
 		                        onChangeDateOrService($.datepicker.formatDate("yy-mm-dd", me.getD));
 		                        return; 
                             }
@@ -934,8 +936,8 @@ $.extend(
 		  			                if ($.inArray(d, me.invalidDatesByService[c1]) > -1)
 		  			                    me.invalidDatesByService[c1].splice($.inArray(d, me.invalidDatesByService[c1]), 1);
 		  			            }
-		  			            me.usedSlots[me.allUsedSlots[i].d] = [];
-		  			            me.allUsedSlots = [];
+		  			            me.usedSlots[me.allUsedSlots[i].d] = new Array();
+		  			            me.allUsedSlots = new Array();
 		  			        }
 		  			    }
 		  			    if ($(this).parents("fieldset").hasClass("ahbgutenberg_editor"))
@@ -1121,7 +1123,7 @@ $.extend(
 		  	     me.duration = parseFloat(me.services[me.service_selected].duration);	
 		  	     me.pa = me.services[me.service_selected].pa * 1 || 0;		  			  	
 		  	     me.pb = me.services[me.service_selected].pb * 1 || 0;
-		  	     me.cacheOpenHours = [];
+		  	     me.cacheOpenHours = new Array();
 		  	     me.special_days = me.getSpecialDays();
 		  	     var str2 = "";    
 		  	     for (var i=1;i<=me.services[me.service_selected].capacity;i++)
@@ -1306,7 +1308,7 @@ $.extend(
 		    } catch (e) {}
 		    e.datepicker("option", "maxDate", me.maxDate );
 		    if (me.getMaxDate!="" && me.tz!=0) 	e.datepicker("option", "maxDate", new Date(me.getMaxDate.getTime()+me.tz*60*60*1000) );
-		    me.tmpinvalidDatestime = [];
+		    me.tmpinvalidDatestime = new Array();
             try {
                   for (var i=0;i<me.tmpinvalidDates.length;i++)
                       me.tmpinvalidDatestime[i]=me.invalidDates[i].getTime();              
@@ -1482,7 +1484,7 @@ $.extend(
                                 var overlapping = false;
                                 var find = false;
                                 me.ignoreUsedSlots = true;
-                                me.cacheArr = [];
+                                me.cacheArr = new Array(); 
                                 for (var i=0;i<data.length;i++)
 		  		                {
 		  		                    var dd = data[i].d;

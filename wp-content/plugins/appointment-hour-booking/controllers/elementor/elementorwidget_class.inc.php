@@ -1,9 +1,4 @@
 <?php
-
-use Elementor\Controls_Manager;
-use Elementor\Plugin;
-use Elementor\Widget_Base;
-
 /**
  * Elementor oEmbed Widget.
  *
@@ -11,7 +6,7 @@ use Elementor\Widget_Base;
  *
  * @since 1.0.0
  */
-class Elementor_CPAppHourBK_Widget extends Widget_Base {
+class Elementor_CPAppHourBK_Widget extends \Elementor\Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -85,7 +80,7 @@ class Elementor_CPAppHourBK_Widget extends Widget_Base {
 			'content_section',
 			[
 				'label' => __( 'Insert Appointment Hour Booking', 'cptslotsb' ),
-				'tab' => Controls_Manager::TAB_CONTENT,
+				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
 
@@ -99,7 +94,7 @@ class Elementor_CPAppHourBK_Widget extends Widget_Base {
 			'formid',
 			[
 				'label' => __( 'Select Form', 'cptslotsb' ),
-				'type' => Controls_Manager::SELECT,
+				'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => '1',
 				'options' => $forms,
 			]
@@ -126,7 +121,7 @@ class Elementor_CPAppHourBK_Widget extends Widget_Base {
         
         $cp_appb_plugin->setId($id);
         
-        if ( ! Plugin::instance()->editor->is_edit_mode() )
+        if ( ! \Elementor\Plugin::instance()->editor->is_edit_mode() ) 
         {
             echo $cp_appb_plugin->filter_content( array("id" => $id) );
             return;
@@ -154,4 +149,4 @@ class Elementor_CPAppHourBK_Widget extends Widget_Base {
 
 }
 
-Plugin::instance()->widgets_manager->register_widget_type(new Elementor_CPAppHourBK_Widget());
+\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Elementor_CPAppHourBK_Widget());

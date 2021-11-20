@@ -1171,7 +1171,10 @@ Please note that the pro features aren't advised as part of the free plugin in t
 = 1.3.27 =
 * Improvements for cross-day time-slots
 
+= 1.3.28 =
+* Support for new styles
+
 == Upgrade Notice ==
 
-= 1.3.27 =
-* Improvements for cross-day time-slots
+= 1.3.28 =
+* Support for new styles

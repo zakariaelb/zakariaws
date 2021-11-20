@@ -27,10 +27,10 @@ $(document).on("dialogopen", ".ui-dialog", function (event, ui) {
     fluidDialog();
 });
 $(function() {
-      var weekDays = ["SU","MO","TU","WE","TH","FR","SA"];
-      var weekDaysLarge = [i18n.dcmvcal.dateformat.sunday, i18n.dcmvcal.dateformat.monday, i18n.dcmvcal.dateformat.tuesday, i18n.dcmvcal.dateformat.wednesday, i18n.dcmvcal.dateformat.thursday, i18n.dcmvcal.dateformat.friday, i18n.dcmvcal.dateformat.saturday];
-      var monthsName = [i18n.dcmvcal.dateformat.jan, i18n.dcmvcal.dateformat.feb, i18n.dcmvcal.dateformat.mar, i18n.dcmvcal.dateformat.apr, i18n.dcmvcal.dateformat.may, i18n.dcmvcal.dateformat.jun, i18n.dcmvcal.dateformat.jul, i18n.dcmvcal.dateformat.aug, i18n.dcmvcal.dateformat.sep, i18n.dcmvcal.dateformat.oct, i18n.dcmvcal.dateformat.nov, i18n.dcmvcal.dateformat.dec];
-      var prefixes = [i18n.dcmvcal.first, i18n.dcmvcal.second, i18n.dcmvcal.third, i18n.dcmvcal.fourth, i18n.dcmvcal.last];
+      var weekDays = new Array("SU","MO","TU","WE","TH","FR","SA");
+      var weekDaysLarge = new Array(i18n.dcmvcal.dateformat.sunday, i18n.dcmvcal.dateformat.monday, i18n.dcmvcal.dateformat.tuesday, i18n.dcmvcal.dateformat.wednesday, i18n.dcmvcal.dateformat.thursday, i18n.dcmvcal.dateformat.friday, i18n.dcmvcal.dateformat.saturday);
+      var monthsName = new Array(i18n.dcmvcal.dateformat.jan, i18n.dcmvcal.dateformat.feb, i18n.dcmvcal.dateformat.mar, i18n.dcmvcal.dateformat.apr, i18n.dcmvcal.dateformat.may, i18n.dcmvcal.dateformat.jun, i18n.dcmvcal.dateformat.jul, i18n.dcmvcal.dateformat.aug, i18n.dcmvcal.dateformat.sep, i18n.dcmvcal.dateformat.oct, i18n.dcmvcal.dateformat.nov, i18n.dcmvcal.dateformat.dec);
+      var prefixes = new Array(i18n.dcmvcal.first, i18n.dcmvcal.second, i18n.dcmvcal.third, i18n.dcmvcal.fourth, i18n.dcmvcal.last);
       
       openRepeatWin = function(){
           loadRepeatData($("#rrule").val());

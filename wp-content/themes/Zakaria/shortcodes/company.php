@@ -54,5 +54,4 @@ function company()
     wp_reset_postdata();
     return $str;
 }
-
 add_shortcode('company', 'company');

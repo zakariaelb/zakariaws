@@ -272,7 +272,7 @@ function initMultiViewCal(container,calendarId,config)
                                     }
                              }
                     });
-                    } catch(e){}
+                    } catch(e){};
                     function cal_beforerequest(type)
                     {
                         var t=i18n.dcmvcal.loading_data;
@@ -362,7 +362,7 @@ function initMultiViewCal(container,calendarId,config)
                             $jc("#txtdatetimeshow"+op.thecontainer).text(p.datestrshow);
                         }
                     });
-                    } catch(e){}
+                    } catch(e){};
                     //to show week view
                     try {
                     $jc("#showweekbtn"+op.thecontainer).click(function(e) {
@@ -376,7 +376,7 @@ function initMultiViewCal(container,calendarId,config)
                         }
             
                     });
-                    } catch(e){}
+                    } catch(e){};
                     //to show month view
                     try {
                     $jc("#showmonthbtn"+op.thecontainer).click(function(e) {
@@ -389,7 +389,7 @@ function initMultiViewCal(container,calendarId,config)
                             $jc("#txtdatetimeshow"+op.thecontainer).text(p.datestrshow);
                         }
                     });
-                    } catch(e){}
+                    } catch(e){};
                     //to show nDays view
                     try {
                     $jc("#shownDaysbtn"+op.thecontainer).click(function(e) {
@@ -402,7 +402,7 @@ function initMultiViewCal(container,calendarId,config)
                             $jc("#txtdatetimeshow"+op.thecontainer).text(p.datestrshow);
                         }
                     });
-                    } catch(e){}
+                    } catch(e){};
                     //to show List view
                     try {
                     $jc("#shownListbtn"+op.thecontainer).click(function(e) {
@@ -416,7 +416,7 @@ function initMultiViewCal(container,calendarId,config)
                             $jc("#txtdatetimeshow"+op.thecontainer).text(p.datestrshow);
                         }
                     });                    
-                    } catch(e){}
+                    } catch(e){};
                     //to show rowMonth view
                     try {
                     $jc("#showrowMonthbtn"+op.thecontainer).click(function(e) {
@@ -429,7 +429,7 @@ function initMultiViewCal(container,calendarId,config)
                             $jc("#txtdatetimeshow"+op.thecontainer).text(p.datestrshow);
                         }
                     });                    
-                    } catch(e){}
+                    } catch(e){};
                     //to show nMonth view
                     try {
                     $jc("#shownMonthbtn"+op.thecontainer).click(function(e) {
@@ -442,17 +442,17 @@ function initMultiViewCal(container,calendarId,config)
                             $jc("#txtdatetimeshow"+op.thecontainer).text(p.datestrshow);
                         }
                     });
-                    } catch(e){}
+                    } catch(e){};
                     try {
                     $jc("#showreflashbtn"+op.thecontainer).click(function(e){
                         $jc("#gridcontainer"+op.thecontainer).reload();
                     });
-                    } catch(e){}
+                    } catch(e){};
                     try {
                     $jc("#shownICALbtn"+op.thecontainer).click(function(e){
                         window.location = DATA_FEED_URL.replace("datafeed","ical")+"&id="+calendarId;
                     });
-                    } catch(e){}
+                    } catch(e){};
                     function CallPrint(code)
                     {
                         var printWindow = window.open();
@@ -531,7 +531,7 @@ function initMultiViewCal(container,calendarId,config)
                              code = code.replace(/width:/g,"width-");
                              CallPrint(code);                             
                     });
-                    } catch(e){}
+                    } catch(e){};	
                     function showEditEvent(url,pos)
                     {   
                     	  if (pos === undefined) pos = "";
@@ -564,7 +564,7 @@ function initMultiViewCal(container,calendarId,config)
                         $jc(".ui-widget-overlay").css("left","0");
                         $jc(".ui-widget-overlay").css("background","#aaaaaa");
                         $jc(".ui-widget-overlay").css("opacity","0.3");
-                        } catch(e){}
+                        } catch(e){};
                     }
                     //Add a new event
                     try {
@@ -574,7 +574,7 @@ function initMultiViewCal(container,calendarId,config)
             
             
                     });
-                    } catch(e){}
+                    } catch(e){};
                     //go to today
                     try {
                     $jc("#showtodaybtn"+op.thecontainer).click(function(e) {
@@ -585,7 +585,7 @@ function initMultiViewCal(container,calendarId,config)
             
             
                     });
-                    } catch(e){}
+                    } catch(e){};
                     //previous date range
                     try {
                     $jc("#sfprevbtn"+op.thecontainer).click(function(e) {
@@ -598,7 +598,7 @@ function initMultiViewCal(container,calendarId,config)
                         }
                         }
                     });
-                    } catch(e){}
+                    } catch(e){};
                     //next date range
                     try {
                     $jc("#sfnextbtn"+op.thecontainer).click(function(e) {
@@ -610,7 +610,7 @@ function initMultiViewCal(container,calendarId,config)
                         }
                         }
                     });
-                    } catch(e){}
+                    } catch(e){};
                     
             
             

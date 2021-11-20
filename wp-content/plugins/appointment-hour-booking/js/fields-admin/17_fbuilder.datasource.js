@@ -218,7 +218,7 @@
 												{
 													e.data.obj.csvData.fields.push( 'Field_' + i );
 												}
-											}
+											};
 
 											if( results.errors.length == 0 )
 											{

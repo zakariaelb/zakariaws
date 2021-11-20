@@ -249,7 +249,7 @@ $.fn.ajaxSubmit = function(options) {
                 $io.remove();
                 xhr.responseXML = null;
             }, 100);
-        }
+        };
 
         function toXml(s, doc) {
             if (window.ActiveXObject) {
@@ -260,8 +260,8 @@ $.fn.ajaxSubmit = function(options) {
             else
                 doc = (new DOMParser()).parseFromString(s, 'text/xml');
             return (doc && doc.documentElement && doc.documentElement.tagName != 'parsererror') ? doc : null;
-        }
-    }
+        };
+    };
 };
 
 $.fn.ajaxForm = function(options) {
@@ -457,5 +457,5 @@ $.fn.selected = function(select) {
 function log() {
     if ($.fn.ajaxSubmit.debug && window.console && window.console.log)
         window.console.log('[jquery.form] ' + Array.prototype.join.call(arguments,''));
-}
+};
 })(jQuery);

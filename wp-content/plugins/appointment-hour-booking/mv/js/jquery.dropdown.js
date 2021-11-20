@@ -17,7 +17,7 @@
         }
         return newpos;
     }
-    function returnfalse() { return false; }
+    function returnfalse() { return false; };
     $.fn.dropdown = function(o) {
         var options = $.extend({
             vinputid: null,

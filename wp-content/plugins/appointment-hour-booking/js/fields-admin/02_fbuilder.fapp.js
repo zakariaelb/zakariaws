@@ -14,7 +14,7 @@ $.extend(
 		ftype:"fapp",			
 		services:new Array({name:"Sample Service",price:24.99,capacity:1,duration:60,pb:0,pa:0,ohindex:0}),
 		/*openhours:new Array({type:"all",d:"",h1:8,m1:0,h2:17,m2:0}),new Array({name:"Default",openhours:new Array({type:"all",d:"",h1:8,m1:0,h2:17,m2:0})})*/
-		openhours:[],
+		openhours:new Array(),
 		allOH:new Array({name:"Default",openhours:new Array({type:"all",d:"",h1:8,m1:0,h2:17,m2:0})}),
 		dateFormat:"mm/dd/yy",
 		showDropdown:false,
@@ -371,12 +371,12 @@ $.extend(
 			    if (!me.openhours[0].name)
 			    {
 			        var obj = {name:"Default",openhours:me.openhours.slice(0)};
-			        me.openhours = [];
+			        me.openhours = new Array();			     
 			        me.openhours[0] = obj;			     
 			    }
-			    me.allOH = [];
+			    me.allOH = new Array();
 			    me.allOH = me.openhours.slice(0);
-			    me.openhours = [];
+			    me.openhours = new Array();
 			}
 			for (var i=0; i< me.services.length;i++)
 			    me.services[i].ohindex = me.services[i].ohindex || 0;
@@ -396,7 +396,7 @@ $.extend(
 				function getSlots(arr, duration, bduration, pa, pb)
 				{
 				    var str = "";
-				    var a1 = [];
+				    var a1 = new Array();
 				    var minutesStart = 0;
 				    if (me.bSlotsCheckbox)
 				        bduration += pa + pb;//
@@ -421,7 +421,7 @@ $.extend(
 				        str+= "<div>"+me.formattime(a1[i])+(me.showEndTime?("-"+me.formattime(a1[i]+duration)):"")+"</div>";
 				    return str;	
 				}
-				var arr = [];
+				var arr = new Array();								
 				var day = d;
 				var s = $( '#field' + me.form_identifier + '-' + me.index + ' .slotsCalendar'+me.name );
 				var ohindex = me.services[me.normalizeSelectIndex($(".fieldCalendarService"+me.name+" select option:selected").index())].ohindex;
@@ -506,7 +506,7 @@ $.extend(
 				  }
 			}
 		
-		    me.special_days = [];
+		    me.special_days = new Array();
 		    if (!me.emptySelectCheckbox || (me.emptySelectCheckbox && $(".fieldCalendarService"+me.name+" select option:selected").index() > 0 ))
 		    {
 		        var ohindex = me.services[me.normalizeSelectIndex($(".fieldCalendarService"+me.name+" select option:selected").index())].ohindex;		    
@@ -582,7 +582,7 @@ $.extend(
 		        e.datepicker("option", "minDate", me.getMinDate );
 		        e.datepicker("setDate", me.getMinDate);
 		    }
-	        me.tmpinvalidDatestime = [];
+	        me.tmpinvalidDatestime = new Array();
             for (var i=0;i<me.tmpinvalidDates.length;i++)
                 me.tmpinvalidDatestime[i]=me.tmpinvalidDates[i].getTime();
             function DisableSpecificDates(date) {

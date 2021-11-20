@@ -21,7 +21,7 @@
 				min:"",
 				max:"",
 				dformat:"digits",
-				formats:["digits","number"],
+				formats:new Array("digits","number"),
 				display:function()
 					{
 						return '- available only in commercial version of plugin -';

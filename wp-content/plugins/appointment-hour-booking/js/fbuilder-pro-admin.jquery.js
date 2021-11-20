@@ -647,9 +647,9 @@
 	};
 
     $.fbuilder[ 'showSettings' ] = {
-		sizeList:[{id:"small",name:"Small"},{id:"medium",name:"Medium"},{id:"large",name:"Large"}],
-		layoutList:[{id:"one_column",name:"One Column"},{id:"two_column",name:"Two Column"},{id:"three_column",name:"Three Column"},{id:"side_by_side",name:"Side by Side"}],
-		formlayoutList:[{id:"top_aligned",name:"Top Aligned"},{id:"left_aligned",name:"Left Aligned"},{id:"right_aligned",name:"Right Aligned"}],
+		sizeList:new Array({id:"small",name:"Small"},{id:"medium",name:"Medium"},{id:"large",name:"Large"}),
+		layoutList:new Array({id:"one_column",name:"One Column"},{id:"two_column",name:"Two Column"},{id:"three_column",name:"Three Column"},{id:"side_by_side",name:"Side by Side"}),
+		formlayoutList:new Array({id:"top_aligned",name:"Top Aligned"},{id:"left_aligned",name:"Left Aligned"},{id:"right_aligned",name:"Right Aligned"}),
 		formTemplateDic: {}, // Form Template dictionary
         showFieldType: function( v )
         {
